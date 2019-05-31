@@ -4,6 +4,13 @@ from . import arguments, atcoder, errors, printer, process
 
 
 def main():
+    try:
+        __main()
+    except errors.AtRunnerError as e:
+        print(f"ERROR: {e.message}")
+
+
+def __main():
     args = arguments.parse()
 
     if args.needs_compilation:
