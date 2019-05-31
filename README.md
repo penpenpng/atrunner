@@ -27,6 +27,8 @@ Python 3.7 以降が必要です。
 | but got:
 |  -1
 |  
+
+Passed cases: 2/3
 ```
 
 その他、細かい使い方については`atrunner -h`を参照してください。

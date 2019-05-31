@@ -41,5 +41,5 @@ def print_re_info(case: TestCase, stderr: str):
     print_failed_case_info(case, stderr)
 
 
-def printer_all_info(all_cases: int, passed_cases: int):
-    pass
+def print_all_info(all_cases: int, passed_cases: int):
+    print(f"Passed cases: {passed_cases}/{all_cases}")

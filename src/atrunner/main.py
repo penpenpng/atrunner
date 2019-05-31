@@ -30,7 +30,7 @@ def __main():
         else:
             printer.print_wa_info(case, res.stdout)
 
-    printer.printer_all_info(len(cases), passed_cases)
+    printer.print_all_info(len(cases), passed_cases)
 
 
 def compile_source(args: arguments.Arguments):
