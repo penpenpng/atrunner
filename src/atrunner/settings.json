@@ -1,0 +1,17 @@
+{
+  "command": {
+    "c": {
+      "compile": "gcc {}",
+      "bin": "a.exe",
+      "run": "a.exe"
+    },
+    "cpp": {
+      "compile": "g++ {}",
+      "bin": "a.exe",
+      "run": "a.exe"
+    },
+    "py": {
+      "run": "python {}"
+    }
+  }
+}
