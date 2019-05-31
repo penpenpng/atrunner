@@ -1,1 +1,1 @@
-include atrunner/*.json
+include settings.json
