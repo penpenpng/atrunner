@@ -48,7 +48,7 @@ pip install git+https://github.com/penpenpng/atrunner
 ### 設定ファイルの作成
 以下を参考にして作成してください。
 
-```json
+```js
 {
   "command": {
     // フォーマットは以下の通り
