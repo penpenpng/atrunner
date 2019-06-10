@@ -10,16 +10,37 @@ from .atcoder import create_url_from_problem_id
 class Arguments:
     def __init__(
         self,
-        settings_file: Union[str, None],
         source_file: str,
         problem_url: Union[str, None],
     ):
         # load settings json file
-        if settings_file is None:
-            package_dir = os.path.dirname(__file__)
-            settings_file = os.path.join(package_dir, "settings.json")
+        package_dir = os.path.dirname(__file__)
+        settings_file = os.path.join(package_dir, "settings.json")
         if not os.path.isfile(settings_file):
-            raise errors.SettingsFileNotFoundError(settings_file)
+            with open(settings_file, "w", encoding="utf-8") as f:
+                json.dump({
+                    "command": {
+                        "exe": {
+                            "run": "{}",
+                        },
+                        "c": {
+                            "compile": "gcc {}",
+                            "bin": "a.exe",
+                            "run": "a.exe",
+                        },
+                        "cpp": {
+                            "compile": "g++ {}",
+                            "bin": "a.exe",
+                            "run": "a.exe",
+                        },
+                        "d": {
+                            "run": "rdmd {}",
+                        },
+                        "py": {
+                            "run": "python {}",
+                        },
+                    }
+                }, f)
 
         try:
             with open(settings_file, "r", encoding="utf-8") as f:
@@ -129,12 +150,8 @@ def parse() -> Arguments:
         "--url", "-u",
         help="problem URL "
         "(can be omittedif the source file name is the same as problem id.)")
-    parser.add_argument(
-        "--settings", "-s",
-        help="path to your settings json file")
     args = parser.parse_args()
 
     return Arguments(
-        args.settings,
         args.source_file,
         args.url)
