@@ -1,15 +1,13 @@
 # AtRunner
-与えられたソースコードが[AtCoder](https://atcoder.jp/)のサンプルケースをパスするかをチェックするツールです。
+与えられたソースコードが[AtCoder](https://atcoder.jp/)のサンプルケースをパスするかをチェックするツールです。自分用。
 Python 3.7 以降が必要です。
 
 ## 使い方
 後述の方法でインストールしたのち、以下の手順に従います。
 
-1. 適当な言語でソースコードを作成し、`ProblemID.*`という名前で保存します。
-    * `ProblemID`は問題ページ URL の末尾の文字列です。
-    * 例えば、[abc128 A - Apple Pie](https://atcoder.jp/contests/abc128/tasks/abc128_a)をC言語で解く場合、`abc128_a.c` という名前でソースコードを保存してください。
-2. ソースコードを保存したディレクトリで`atrunner [source_code]`を実行します。
-    * 上記の例の場合、`atrunner abc128_a.c`を実行します。
+1. `attemp [contestID] [language]`を実行し、作業ディレクトリを作成します。
+    * `contestID`は例えば`abc123`, `arc099`のような文字列です。
+2. 作業ディレクトリで`atrunner [source_code]`を実行します。
 3. ソースコードの内容によって、例えば以下のような結果を得ることができます:
 
 ```
@@ -79,7 +77,8 @@ pip install git+https://github.com/penpenpng/atrunner
 pip uninstall atrunner
 ```
 
-## 制約
-* ログインが必要なコンテストに対応していません。
-* 出力例が唯一解でない場合には対応していません。
-* 一部の特殊な URL で開催されているコンテストに対応していません。
+## TODO
+* ログインが必要なコンテストへの対応。
+* `attemp`のユーザ設定機能の追加。
+* 一部の特殊な URL で開催されているコンテストへの対応。
+* 出力例が唯一解でない場合に警告する。
