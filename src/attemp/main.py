@@ -18,9 +18,8 @@ def main():
     os.mkdir(args.contest)
     for suf in ["_a", "_b", "_c", "_d", "_e", "_f"]:
         path = Path(args.contest) / f"{args.contest}{suf}.{args.extension}"
-        if template is not None:
-            with open(path, "w", encoding="utf_8") as f:
-                f.write(template)
+        with open(path, "w", encoding="utf_8") as f:
+            f.write(template)
 
 
 def load_templates(ext):
@@ -31,3 +30,4 @@ def load_templates(ext):
     if template_file.is_file():
         with open(template_file, "r", encoding="utf_8") as f:
             return f.read()
+    return ""
