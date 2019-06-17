@@ -14,7 +14,7 @@ def main():
         help="extension of source files excluding period: like \"cpp\"")
     args = parser.parse_args()
 
-    template = load_templates(args.extension)
+    template = load_template(args.extension)
     os.mkdir(args.contest)
     for suf in ["_a", "_b", "_c", "_d", "_e", "_f"]:
         path = Path(args.contest) / f"{args.contest}{suf}.{args.extension}"
@@ -22,7 +22,7 @@ def main():
             f.write(template)
 
 
-def load_templates(ext):
+def load_template(ext):
     template_dir = Path(__file__).parent / "temp"
     template_file = template_dir / ext
     if not template_dir.exists():
