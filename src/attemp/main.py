@@ -24,7 +24,10 @@ def main():
 
 
 def load_templates(ext):
-    template_file = Path(__file__).parent / "temp" / ext
+    template_dir = Path(__file__).parent / "temp"
+    template_file = template_dir / ext
+    if not template_dir.exists():
+        os.mkdir(template_dir)
     if template_file.is_file():
         with open(template_file, "r", encoding="utf_8") as f:
             return f.read()
